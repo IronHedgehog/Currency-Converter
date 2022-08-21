@@ -22,10 +22,10 @@ export default function Header({ UAH, EUR, USD }) {
             News
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            UAH: {UAH.toFixed(3)}
+            USD: {USD.toFixed(3)} =
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            USD: {USD.toFixed(3)}
+            UAH: {UAH.toFixed(3)}
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             EUR: {EUR.toFixed(3)}
