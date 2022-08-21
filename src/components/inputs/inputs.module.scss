@@ -1,0 +1,26 @@
+.group {
+  background: #335;
+  width: 280px;
+  margin: 0 auto 20px;
+  display: grid;
+  grid-template-columns: 200px 80px;
+  border-radius: 15px;
+}
+
+.currencyInput {
+  background: none;
+  border: 0;
+  color: #fff;
+  overflow-x: scroll;
+  padding-left: 10px;
+}
+.currencySelect {
+  background: none;
+  border: 0;
+  overflow-x: scroll;
+  color: #fff;
+  padding: 15px;
+}
+.currencyOptions {
+  background-color: grey;
+}
