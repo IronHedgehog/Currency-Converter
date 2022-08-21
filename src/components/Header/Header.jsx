@@ -1,3 +1,4 @@
+import s from "./Header.module.scss";
 import * as React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
@@ -9,12 +10,12 @@ import IconButton from "@mui/material/IconButton";
 export default function Header({ UAH, EUR, USD }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" className={s.colorPrimary}>
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            color="secondary"
             aria-label="menu"
             sx={{ mr: 2 }}
           ></IconButton>

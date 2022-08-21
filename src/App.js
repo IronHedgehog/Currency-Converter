@@ -1,4 +1,4 @@
-import "./App.module.scss";
+import s from "./App.module.scss";
 import CurrencyInput from "./components/inputs/Inputs.jsx";
 import { useState, useEffect } from "react";
 import fetchExchangeRate from "./api/CurrencyApi";
@@ -62,21 +62,23 @@ function App() {
         EUR={rates?.EUR ? rates?.EUR : 0.0}
         USD={rates?.USD ? rates?.USD : 0.0}
       />
-      <h1>Currency Converter</h1>
-      <CurrencyInput
-        onAmountChange={handleAmount1Change}
-        onCurrencyChange={handleCurrency1Change}
-        currencies={Object.keys(rates)}
-        amount={Number(amount1)}
-        currency={currency1}
-      />
-      <CurrencyInput
-        onAmountChange={handleAmount2Change}
-        onCurrencyChange={handleCurrency2Change}
-        currencies={Object.keys(rates)}
-        amount={Number(amount2)}
-        currency={currency2}
-      />
+      <div className={s.wrapper}>
+        <h1>Currency Converter</h1>
+        <CurrencyInput
+          onAmountChange={handleAmount1Change}
+          onCurrencyChange={handleCurrency1Change}
+          currencies={Object.keys(rates)}
+          amount={Number(amount1)}
+          currency={currency1}
+        />
+        <CurrencyInput
+          onAmountChange={handleAmount2Change}
+          onCurrencyChange={handleCurrency2Change}
+          currencies={Object.keys(rates)}
+          amount={Number(amount2)}
+          currency={currency2}
+        />
+      </div>
     </>
   );
 }
