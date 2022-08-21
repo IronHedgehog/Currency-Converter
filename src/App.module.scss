@@ -1,12 +1,15 @@
 body {
+  margin: 0px;
   background-color: #161616;
   color: #ddd;
-  padding: 20px;
+  background-image: url(./assets/img/bcg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h1 {
   color: #eef;
   text-align: center;
 }
 .wrapper {
-  margin-top: 200px;
+  margin-top: 270px;
 }
