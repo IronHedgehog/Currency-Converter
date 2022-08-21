@@ -1,14 +1,14 @@
 import "./App.module.scss";
 import CurrencyInput from "./components/inputs/Inputs.jsx";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import fetchExchangeRate from "./api/CurrencyApi";
 import Header from "./components/Header/Header";
 
 function App() {
   const [amount1, setAmount1] = useState(1);
   const [amount2, setAmount2] = useState(1);
-  const [currency1, setCurrency1] = useState("USD");
-  const [currency2, setCurrency2] = useState("UAH");
+  const [currency1, setCurrency1] = useState("UAH");
+  const [currency2, setCurrency2] = useState("USD");
   const [rates, setRates] = useState([]);
 
   useEffect(() => {
@@ -22,13 +22,9 @@ function App() {
     })();
   }, []);
 
-  const handleAmount1Change = useCallback(
-    (amount1) => {
-      setAmount2(format((amount1 * rates[currency2]) / rates[currency1]));
-      setAmount1(amount1);
-    },
-    [currency1, currency2, rates]
-  );
+  const format = (number) => {
+    return Number(number.toFixed(2));
+  };
 
   useEffect(() => {
     if (!!rates) {
@@ -37,12 +33,13 @@ function App() {
       }
       init();
     }
-  }, [rates, handleAmount1Change]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rates]);
 
-  const format = (number) => {
-    return Number(number.toFixed(2));
+  const handleAmount1Change = (amount1) => {
+    setAmount2(format((amount1 * rates[currency2]) / rates[currency1]));
+    setAmount1(amount1);
   };
-
   const handleCurrency1Change = (currency1) => {
     setAmount2(format((amount1 * rates[currency2]) / rates[currency1]));
     setCurrency1(currency1);
@@ -70,14 +67,14 @@ function App() {
         onAmountChange={handleAmount1Change}
         onCurrencyChange={handleCurrency1Change}
         currencies={Object.keys(rates)}
-        amount={Number(amount1) ? Number(amount1) : null}
+        amount={Number(amount1)}
         currency={currency1}
       />
       <CurrencyInput
         onAmountChange={handleAmount2Change}
         onCurrencyChange={handleCurrency2Change}
         currencies={Object.keys(rates)}
-        amount={Number(amount2) ? Number(amount2) : null}
+        amount={Number(amount2)}
         currency={currency2}
       />
     </>

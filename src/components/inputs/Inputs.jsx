@@ -1,19 +1,19 @@
 import PropTypes from "prop-types";
 import s from "./inputs.module.scss";
 
-function CurrencyInput({
+const CurrencyInput = ({
   onAmountChange,
   onCurrencyChange,
   currencies,
   amount,
   currency,
-}) {
+}) => {
   return (
     <div className={s.group}>
       <input
         className={s.currencyInput}
         type="number"
-        value={amount}
+        value={amount ? amount : ""}
         onChange={(ev) => onAmountChange(ev.target.value)}
       />
       <select
@@ -29,7 +29,7 @@ function CurrencyInput({
       </select>
     </div>
   );
-}
+};
 
 CurrencyInput.propTypes = {
   amount: PropTypes.number.isRequired,

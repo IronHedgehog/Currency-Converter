@@ -7,9 +7,6 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 
 export default function Header({ UAH, EUR, USD }) {
-  //   console.log(typeof UAH);
-  //   console.log(typeof EUR);
-  //   console.log(typeof USD);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -25,10 +22,10 @@ export default function Header({ UAH, EUR, USD }) {
             News
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            USD: {USD.toFixed(3)}
+            UAH: {UAH.toFixed(3)}
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            UAH: {UAH.toFixed(3)}
+            USD: {USD.toFixed(3)}
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             EUR: {EUR.toFixed(3)}

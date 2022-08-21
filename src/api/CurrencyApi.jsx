@@ -1,9 +1,11 @@
 import axios from "axios";
 
+axios.defaults.baseURL = "https://api.apilayer.com";
+
+const apiKey = "l4UbUiteeq7w9saUsmX4xOoLqdYwwQy7";
+
 const fetchExchangeRate = async () => {
-  const response = await axios.get(
-    "https://api.apilayer.com/fixer/latest?base=USD&apikey=x6df32tyZvuNqe34ra1RsOyHxkihxwIr"
-  );
+  const response = await axios.get(`/fixer/latest?base=UAH&apikey=${apiKey}`);
   return response;
 };
 
